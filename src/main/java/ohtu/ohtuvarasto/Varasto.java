@@ -70,4 +70,8 @@ public class Varasto {
     public String toString() {
         return ("saldo = " + saldo + ", vielä tilaa " + paljonkoMahtuu());
     }
+
+    public double pow(){
+        return Math.pow(1.9,22);
+    }
 }
