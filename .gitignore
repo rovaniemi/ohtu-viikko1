@@ -9,3 +9,5 @@ bin/*
 .settings
 gradle/*
 .vscode
+RiippuvuuksienInjektointi/bin/*
+NhlStatistics1/bin/*
