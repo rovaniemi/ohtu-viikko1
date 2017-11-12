@@ -14,7 +14,6 @@
         <module name="CyclomaticComplexity">
             <property name="max" value="3"/>
         </module>
-        <module name="MagicNumber"/>
     </module>
 
 </module>
