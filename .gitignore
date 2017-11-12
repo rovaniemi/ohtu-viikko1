@@ -11,3 +11,4 @@ gradle/*
 .vscode
 RiippuvuuksienInjektointi/bin/*
 NhlStatistics1/bin/*
+bin
