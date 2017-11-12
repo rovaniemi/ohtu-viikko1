@@ -5,3 +5,7 @@ build/*
 gradle.properties
 .gradle
 out/*
+bin/*
+.settings
+gradle/*
+.vscode

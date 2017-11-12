@@ -9,25 +9,20 @@ public class Varasto {
         if (tilavuus > 0.0) {
             this.tilavuus = tilavuus;
         } else {
-            this.tilavuus = 0.0;
+            this.tilavuus = 0.0; 
         }
         saldo = 0;
     }
 
     public Varasto(double tilavuus, double alkuSaldo) {
-        if (tilavuus > 0.0) {
+        if (tilavuus < 0.0) {
+            tilavuus = 0.0;
+        } else {
             this.tilavuus = tilavuus;
-        } else {
-            this.tilavuus = 0.0;
         }
-        if (alkuSaldo < 0.0) {
-            this.saldo = 0.0;
-        } else if (alkuSaldo <= tilavuus) {
-            this.saldo = alkuSaldo;
-        } else {
-            this.saldo = tilavuus;
-        }
+        this.saldo = asetaAlkuSaldo(tilavuus, alkuSaldo);
     }
+
 
     public double getSaldo() {
         return saldo;
@@ -38,15 +33,16 @@ public class Varasto {
     }
 
     public double paljonkoMahtuu() {
-        return tilavuus - saldo;
+        return tilavuus - saldo; 
     }
+
 
     public void lisaaVarastoon(double maara) {
         if (maara < 0) {
-            return;
+            return; 
         }
         if (maara <= paljonkoMahtuu()) {
-            saldo = saldo + maara;
+            saldo = saldo + maara; 
         } else {
             saldo = tilavuus;
         }
@@ -56,13 +52,11 @@ public class Varasto {
         if (maara < 0) {
             return 0.0;
         }
-
         if (maara > saldo) {
             double kaikkiMitaVoidaan = saldo;
             saldo = 0.0;
             return kaikkiMitaVoidaan;
         }
-
         saldo = saldo - maara;
         return maara;
     }
@@ -71,7 +65,15 @@ public class Varasto {
         return ("saldo = " + saldo + ", vielä tilaa " + paljonkoMahtuu());
     }
 
-    public double pow(){
-        return Math.pow(1.9,22);
+    private double asetaAlkuSaldo(double tilavuus, double alkuSaldo) {
+        double saldo = alkuSaldo;
+        if (saldo < 0.0) {
+            saldo= 0.0;
+        } else if (alkuSaldo <= tilavuus) {
+            saldo = alkuSaldo;
+        } else {
+            saldo = tilavuus;
+        }
+        return saldo;
     }
 }
